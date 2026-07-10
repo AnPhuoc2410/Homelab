@@ -1,0 +1,17 @@
+services:
+  whatsupdocker:
+    image: getwud/wud
+    container_name: wud
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+        - /your/path/to:/your/path/to:ro
+    ports:
+      - 3000:3000
+    environment:
+      - WUD_LOG_LEVEL=info
+      - WUD_WATCHER_LOCAL_CRON=0 0 * * * 
+      - WUD_TRIGGER_DISCORD_MYDISCORD_URL=Https://discord.com/api/webhooks/your_webhook_url
+      - WUD_TRIGGER_DOCKERCOMPOSE_N8N_FILE=/your/path/to/docker-compose.yml
+      - WUD_TRIGGER_DOCKERCOMPOSE_N8N_PRUNE=true
+      - WUD_TRIGGER_DOCKERCOMPOSE_N8N_BACKUP=true
+networks: {}
